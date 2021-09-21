@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -52,6 +53,18 @@ namespace App.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            StaticFileOptions option = new StaticFileOptions();
+            FileExtensionContentTypeProvider contentTypeProvider = (FileExtensionContentTypeProvider)option.ContentTypeProvider ??
+            new FileExtensionContentTypeProvider();
+
+            contentTypeProvider.Mappings.Add(".mem", "application/octet-stream");
+            contentTypeProvider.Mappings.Add(".data", "application/octet-stream");
+            contentTypeProvider.Mappings.Add(".memgz", "application/octet-stream");
+            contentTypeProvider.Mappings.Add(".datagz", "application/octet-stream");
+            contentTypeProvider.Mappings.Add(".unity3dgz", "application/octet-stream");
+            contentTypeProvider.Mappings.Add(".jsgz", "application/x-javascript; charset=UTF-8");
+            option.ContentTypeProvider = contentTypeProvider;
+            app.UseStaticFiles(option);
         }
     }
 }

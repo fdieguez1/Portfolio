@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.data" />
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.data.gz" />
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.framework.js" />
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.framework.js.gz" />
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.loader.js" />
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.wasm" />
+    <None Include="wwwroot\TestWebGl\Build\TestWebGl.wasm.gz" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
   </ItemGroup>
 
