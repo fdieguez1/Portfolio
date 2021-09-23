@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="subtitle">
+        <h2 class="">Diseño</h2>
+        <div class="row">
+            <p class="col-md">Algunos de los diseños que fui creando a lo largo del tiempo para distintos clientes o para proyectos propios</p>
+        </div>
+    </div>
+
+    <div class="flexbox">
+        <img src="~/images/aag.png">
+        <img src="~/images/aag-grafico-funciones.png">
+        <img src="~/images/MutualAlas.png">
+        <img src="~/images/sophenia.png">
+        <img src="~/images/terrazas.png">
+        <img src="~/images/cornerwatchup.png">
+    </div>
+    <div class="flexbox">
+        <img src="~/images/triptico-cerrado.png">
+        <img src="~/images/triptico-exterior-s.png">
+        <img src="~/images/triptico-interior-s.png">
+        <img src="~/images/logoartisticoB.png">
+    </div>
+    <div class="flexbox">
+        <img src="~/images/Logo Tecnocode-01.png">
+        <img src="~/images/pflogo.png">
+        <img src="~/images/ratkidgameswithlight.png">
+        <img src="~/images/banner-tecnocode.png">
+    </div>
+    <div class="flexbox">
+        <img src="~/images/presentacionWebTaladro.png">
+        <img src="~/images/pantallas web OpcionB.png">
+        <img src="~/images/presentacion1.png">
+        <img src="~/images/presentacion2.png">
+        <img src="~/images/tecnocode-web.png">
+    </div>
+    <div class="subtitle">
+        <h2 class="">Videos</h2>
+        <p>Videos promocionales realizados con after effects para la promocion de las aplicaciones o para tutoriales</p>
+    </div>
+    <div class="row">
+        <iframe class="col" width="640" height="360" src="https://www.youtube.com/embed/Gt4AxMU6H_Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+        <iframe class="col" width="640" height="360" src="https://www.youtube.com/embed/o1zneSBNGqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+        <iframe class="col" width="640" height="360" src="https://www.youtube.com/embed/OLgx8n2jwhc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+    </div>
+
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".flexbox img").on("click", function (senderElement) {
+                var target = $(senderElement.currentTarget)
+                var className = "max-width-toggle";
+                if (target.hasClass(className)) {
+                    target.removeClass(className);
+                }
+                else {
+                    $(".flexbox img").removeClass(className);
+                    target.toggleClass(className);
+                }
+            });
+        });
+    </script>
+}

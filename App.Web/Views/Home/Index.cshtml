@@ -3,6 +3,13 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4 text-white">Bienvenidos</h1>
+    <h1 class="index-title text-white">Bienvenidos</h1>
     <iframe class="background-char-container" src="~/TestWebGl/index.html"></iframe>
 </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("body").addClass("index-main-body");
+        });
+    </script>
+}

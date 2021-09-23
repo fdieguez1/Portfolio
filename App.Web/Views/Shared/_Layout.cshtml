@@ -3,15 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - App.Web</title>
+    <title>Fernando Dieguez</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-personal box-shadow mb-3 z-index-30">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="top-logo-img" src="~/images/logo.png"/></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="top-logo-img" src="~/images/logo.png" /></a>
                 <button class="navbar-toggler " type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,32 +26,41 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Github</a>
+                            <a class="nav-link text-white" href="https://github.com/fdieguez1" target="_blank">Github</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Programacion</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Info" asp-action="Development">Desarrollo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Diseño</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Info" asp-action="Design">Diseño</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Otros</a>
+                            <a class="nav-link text-white nav-flex" href="~/Files/CV Fernando Dieguez.pdf" download><div>CV</div> <img class="small-nav-icon" src="~/images/download-cloud.svg" /></a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Info" asp-action="Others">Otros</a>
+                        </li>
+                        @*<li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Legales</a>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <div class="loading-screen">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+            </div>
+        </div>
+    </div>
 
-    <footer class="footer text-muted">
+    <footer class="footer text-muted text-center z-index-30">
         <div class="container">
             &copy; 2021 - Fernando Dieguez - <a asp-area="" asp-controller="Home" asp-action="Privacy">Legales</a>
         </div>
@@ -56,5 +69,10 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $(".loading-screen").slideUp();
+        });
+    </script>
 </body>
 </html>
