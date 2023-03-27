@@ -1,148 +1,181 @@
-﻿@using App.Web.Models.Enums; 
+﻿@using App.Web.Models.Enums;
 @model List<App.Web.Models.DevelopmentViewModel>
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <div class="container">
-    <div class="text-center">
-        <h1 class="display-4">Desarrollo</h1>
-        @if (ViewBag.Quotes != null)
-        {
-            <div class="quote-title text-center">Frase aleatoria del día:</div>
-            <h2 class="quote text-center">@ViewBag.Quotes[new Random().Next(0, ViewBag.Quotes.Count)].Text</h2>
-        }
-        <div class="icons-container">
-            <img class="icon" src="~/images/Icons/logo-Unity.png" />
-            <img class="icon" src="~/images/Icons/logo-xamarin.png" />
-            <img class="icon" src="~/images/Icons/logo-Vs.png" />
-            <img class="icon" src="~/images/Icons/logo-vsCode.png" />
-            <img class="icon" src="~/images/Icons/logo-NetCore.png" />
-            <img class="icon" src="~/images/Icons/logo-csharp.png" />
-            <img class="icon" src="~/images/Icons/logo-git.png" />
-            <img class="icon" src="~/images/Icons/logo-gitHub.png" />
-            <img class="icon" src="~/images/Icons/logo-Html5.png" />
-            <img class="icon" src="~/images/Icons/logo-Css3.png" />
-            <img class="icon" src="~/images/Icons/logo-Jquery.png" />
-            <img class="icon" src="~/images/Icons/logo-Js.png" />
-            <img class="icon" src="~/images/Icons/logo-admob.png" />
-            <img class="icon" src="~/images/Icons/logo-ai.png" />
-            <img class="icon" src="~/images/Icons/logo-playStore.png" />
-            <img class="icon" src="~/images/Icons/logo-Premiere.png" />
-            <img class="icon" src="~/images/Icons/logo-ps.png" />
-        </div>
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
-        </div>
-        <h2 class="">Personales</h2>
-        <div class="proyects-container">
-            @foreach (var item in Model.Where(x => x.Type == ProyectTypeEnum.Personal).ToList())
-            {
-            <div class="dev-item-container">
-                @if (!string.IsNullOrEmpty(item.ImageSourceName))
-                {
-                    <div class="dev-img-container">
-                        <img class="dev-img" src="~/images/@item.ImageSourceName" />
-                    </div>
-                }
-                <div class="dev-item-data">
-                    <div class="title">@item.Title</div>
-                    <div class="dev-text">@item.Text</div>
-                    <div class="title">Tecnologías</div>
-                    <ul class="dev-list">
-                        @foreach (var tech in item.Technologies)
-                        {
-                            <li>@tech</li>
-                        }
-                    </ul>
-                    @if (!string.IsNullOrEmpty(item.Url)) {
-                        <a class="dev-link" href="@item.Url">Ver más </a>
-                    }
-                </div>
-            </div>
-            }
-        </div>
-        <h2 class="">Proyectos</h2>
-        <div class="proyects-container">
-            @foreach (var item in Model.Where(x => x.Type == ProyectTypeEnum.BajoContrato).ToList())
-            {
-                <div class="dev-item-container">
-                    @if (!string.IsNullOrEmpty(item.ImageSourceName))
-                    {
-                        <div class="dev-img-container">
-                            <img class="dev-img" src="~/images/@item.ImageSourceName" />
-                        </div>
-                    }
-                    <div class="dev-item-data">
-                        <div class="title">@item.Title</div>
-                        <div class="dev-text">@item.Text</div>
-                        <div class="title">Tecnologías</div>
-                        <ul class="dev-list">
-                            @foreach (var tech in item.Technologies)
-                            {
-                                <li>@tech</li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
+	<div class="text-center">
+		<h1 class="display-4">Desarrollo</h1>
+		@if (ViewBag.Quotes != null)
+		{
+			<div class="quote-title text-center">Frase aleatoria del día:</div>
+			<h2 class="quote text-center">@ViewBag.Quotes[new Random().Next(0, ViewBag.Quotes.Count)].Text</h2>
+		}
+		<div class="icons-container">
+			<img class="icon" src="~/images/Icons/logo-Unity.png" />
+			<img class="icon" src="~/images/Icons/logo-xamarin.png" />
+			<img class="icon" src="~/images/Icons/logo-Vs.png" />
+			<img class="icon" src="~/images/Icons/logo-vsCode.png" />
+			<img class="icon" src="~/images/Icons/logo-NetCore.png" />
+			<img class="icon" src="~/images/Icons/logo-csharp.png" />
+			<img class="icon" src="~/images/Icons/logo-git.png" />
+			<img class="icon" src="~/images/Icons/logo-gitHub.png" />
+			<img class="icon" src="~/images/Icons/logo-Html5.png" />
+			<img class="icon" src="~/images/Icons/logo-Css3.png" />
+			<img class="icon" src="~/images/Icons/logo-Jquery.png" />
+			<img class="icon" src="~/images/Icons/logo-Js.png" />
+			<img class="icon" src="~/images/Icons/logo-admob.png" />
+			<img class="icon" src="~/images/Icons/logo-ai.png" />
+			<img class="icon" src="~/images/Icons/logo-playStore.png" />
+			<img class="icon" src="~/images/Icons/logo-Premiere.png" />
+			<img class="icon" src="~/images/Icons/logo-ps.png" />
+		</div>
+		<div class="chart-container">
+			<canvas id="myChart"></canvas>
+		</div>
+
+		<h2 class="">Unity</h2>
+		<div class="proyects-container">
+			@foreach (var item in Model.Where(x => x.Type == ProyectTypeEnum.Unity).ToList())
+			{
+				<div class="dev-item-container">
+					@if (!string.IsNullOrEmpty(item.ImageSourceName))
+					{
+						<div class="dev-img-container">
+							<img class="dev-img" src="~/images/@item.ImageSourceName" />
+						</div>
+					}
+					<div class="dev-item-data">
+						<div class="title">@item.Title</div>
+						<div class="dev-text">@item.Text</div>
+						<div class="title">Tecnologías</div>
+						<ul class="dev-list">
+							@foreach (var tech in item.Technologies)
+							{
+								<li>@tech</li>
+							}
+						</ul>
+						@if (!string.IsNullOrEmpty(item.Url))
+						{
+							<a class="dev-link" href="@item.Url">Ver más </a>
+						}
+					</div>
+				</div>
+			}
+		</div>
+		<h2 class="">VR</h2>
+		<div class="proyects-container">
+			@foreach (var item in Model.Where(x => x.Type == ProyectTypeEnum.VirtualReality).ToList())
+			{
+				<div class="dev-item-container">
+					@if (!string.IsNullOrEmpty(item.ImageSourceName))
+					{
+						<div class="dev-img-container">
+							<img class="dev-img" src="~/images/@item.ImageSourceName" />
+						</div>
+					}
+					<div class="dev-item-data">
+						<div class="title">@item.Title</div>
+						<div class="dev-text">@item.Text</div>
+						<div class="title">Tecnologías</div>
+						<ul class="dev-list">
+							@foreach (var tech in item.Technologies)
+							{
+								<li>@tech</li>
+							}
+						</ul>
+						@if (!string.IsNullOrEmpty(item.Url))
+						{
+							<a class="dev-link" href="@item.Url">Ver más </a>
+						}
+					</div>
+				</div>
+			}
+		</div>
+		<h2 class="">.NET</h2>
+		<div class="proyects-container">
+			@foreach (var item in Model.Where(x => x.Type == ProyectTypeEnum.NET).ToList())
+			{
+				<div class="dev-item-container">
+					@if (!string.IsNullOrEmpty(item.ImageSourceName))
+					{
+						<div class="dev-img-container">
+							<img class="dev-img" src="~/images/@item.ImageSourceName" />
+						</div>
+					}
+					<div class="dev-item-data">
+						<div class="title">@item.Title</div>
+						<div class="dev-text">@item.Text</div>
+						<div class="title">Tecnologías</div>
+						<ul class="dev-list">
+							@foreach (var tech in item.Technologies)
+							{
+								<li>@tech</li>
+							}
+						</ul>
+					</div>
+				</div>
+			}
+		</div>
+
+
+	</div>
 </div>
 
 @section Scripts{
-    <script>
-        const data = {
-            labels: [
-                'ASP.NET Core MVC',
-                'Xamarin MVVM',
-                'Unity',
-                'Vs Code & Vs Studio',
-                'Azure',
-                'C#',
-                'Javascript & Jquery',
-                'HTML5 & CSS3',
-                'SQL Server MSSQLMS',
-                'Paquete Adobe (Ai,Ps,Ae,etc)',
-                'Admob',
-                'Play store',
-                'App store',
-                'Firebase',
-                'Modelado 3d Blender/Sketchup',
-                'Git',
-            ],
-            datasets: [{
-                label: 'Skills',
-                data: [80, 80, 80, 60, 40, 80, 80, 100, 80, 80, 60, 40, 40, 10, 40, 60],
-                backgroundColor: [
-                    'rgb(255,255,255)',
-                    'rgb(0, 0, 0)',
-                    'rgb(83, 0, 177)',
-                    'rgb(255,255,255)',
-                    'rgb(0, 0, 0)',
-                    'rgb(83, 0, 177)',
-                    'rgb(255,255,255)',
-                    'rgb(0, 0, 0)',
-                    'rgb(83, 0, 177)',
-                    'rgb(255,255,255)',
-                    'rgb(0, 0, 0)',
-                    'rgb(83, 0, 177)',
-                    'rgb(255,255,255)',
-                    'rgb(0, 0, 0)',
-                    'rgb(83, 0, 177)',
-                    'rgb(255,255,255)'
-                ],
-                hoverOffset: 4
-            }]
-        };
-        const config = {
-            type: 'bar',
-            data: data,
-        };
+	<script>
+		const data = {
+			labels: [
+				'Unity',
+				'C#',
+				'ASP.NET Core MVC',
+				'Xamarin MVVM',
+				'Vs Code & Vs Studio',
+				'Azure',
+				'Javascript & Jquery',
+				'HTML5 & CSS3',
+				'SQL Server MSSQLMS',
+				'Paquete Adobe (Ai,Ps,Ae,etc)',
+				'Admob',
+				'Play store',
+				'App store',
+				'Firebase',
+				'Modelado 3d Blender/Sketchup',
+				'Git',
+			],
+			datasets: [{
+				label: 'Skills',
+				data: [100, 100, 80, 80, 80, 40, 80, 100, 80, 80, 60, 40, 40, 30, 40, 70],
+				backgroundColor: [
+					'rgb(255,255,255)',
+					'rgb(0, 0, 0)',
+					'rgb(83, 0, 177)',
+					'rgb(255,255,255)',
+					'rgb(0, 0, 0)',
+					'rgb(83, 0, 177)',
+					'rgb(255,255,255)',
+					'rgb(0, 0, 0)',
+					'rgb(83, 0, 177)',
+					'rgb(255,255,255)',
+					'rgb(0, 0, 0)',
+					'rgb(83, 0, 177)',
+					'rgb(255,255,255)',
+					'rgb(0, 0, 0)',
+					'rgb(83, 0, 177)',
+					'rgb(255,255,255)'
+				],
+				hoverOffset: 4
+			}]
+		};
+		const config = {
+			type: 'bar',
+			data: data
+		};
 
-        var myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-    </script>
+		var myChart = new Chart(
+			document.getElementById('myChart'),
+			config
+		);
+	</script>
 }

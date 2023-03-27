@@ -7,7 +7,8 @@ namespace App.Web.Models.Enums
 {
     public enum ProyectTypeEnum
     {
-        Personal = 0,
-        BajoContrato = 1
+        Unity = 0,
+        NET = 1,
+        VirtualReality = 2,
     }
 }

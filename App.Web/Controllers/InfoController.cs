@@ -49,11 +49,6 @@ namespace App.Web.Controllers
                 },
                 new QuoteViewModel()
                 {
-                    Text = "\"Experience is the name everyone gives to their mistakes.\"",
-                    Author = "Unknown"
-                },
-                new QuoteViewModel()
-                {
                     Text = "\"Any fool can write code that a computer can understand. Good programmers write code that humans can understand.\"",
                     Author = "Martin Fowler"
                 },
@@ -90,19 +85,45 @@ namespace App.Web.Controllers
             };
             ViewBag.Quotes = quotes;
             List<DevelopmentViewModel> data = new List<DevelopmentViewModel>() {
+				new DevelopmentViewModel()
+				{
+					Title = "Proyecto sin nombre, Oculus quest 2",
+					Text = "Al interesarme la realidad virtual incursione en el desarrollo para la misma, principalmente con el Oculus Quest 2, siendo el headset con mas prescencia en el mercado en la actualidad",
+					Technologies = new List<string>(){
+						"Unity, C#",
+						"Oculus XR Plugin",
+						"Android"
+					},
+					ImageSourceName = "oculusquest.png",
+					Type = ProyectTypeEnum.VirtualReality,
+					Url = "https://play.google.com/store/apps/details?id=com.otherguys.journeys"
+				},
+				new DevelopmentViewModel()
+                {
+                    Title = "The other guys - Gameloft",
+                    Text = "Journeys Interactive Histories / Linda Brown - Trabajando en el equipo de Tech quality, nuestro objetivo era mejorar el código existente, bug fixing, análisis y seguimiento de métricas e incidencias y la creación de features para expandir la aplicacion",
+                    Technologies = new List<string>(){
+						"Unity, C#",
+						"Amplitude",
+                        "Firebase",
+                        "Android / iOS"
+                    },
+                    ImageSourceName = "theotherguys.png",
+                    Type = ProyectTypeEnum.Unity,
+                    Url = "https://play.google.com/store/apps/details?id=com.otherguys.journeys"
+                },
                 new DevelopmentViewModel()
                 {
                     Title = "RatkidGames",
-                    Text = "Juegos y apps de entretenimiento para dispositivos android, publicados en Google Play Store, siendo el mas exitoso \"Sonidos Random Memes\" con mas de 1 millon de descargas, es una botonera con sonidos de humor absurdo basados en toda la cultura meme",
+                    Text = "Juegos y apps de entretenimiento para dispositivos android, publicados en Google Play Store, siendo el mas exitoso \"Sonidos Random Memes\" con mas de 1 millon de descargas, es una botonera con sonidos pedidos por los usuarios, de humor absurdo basados en toda la cultura meme",
                     Technologies = new List<string>(){
-                        "Unity",
-                        "ASP.NET",
-                        "Admob para monetización",
-                        "Play store (Android)",
-                        "App Store (iOS)"
+						"Unity, C#",
+						"ASP.NET Core",
+                        "Admob",
+                        "Android / iOS"
                     },
                     ImageSourceName = "ratkidgames.png",
-                    Type = ProyectTypeEnum.Personal,
+                    Type = ProyectTypeEnum.Unity,
                     Url = "https://play.google.com/store/apps/developer?id=RatKid+Games"
                 },
                 new DevelopmentViewModel()
@@ -110,83 +131,84 @@ namespace App.Web.Controllers
                     Title = "Inari Apps",
                     Text = "Segunda cuenta para la publicación de aplicaciones de entretenimiento y juegos, apuntando a crear juegos mas serios y complejos. De momento solo posee un juego publicado \"Kawaii Color Block\"",
                     Technologies = new List<string>(){
-                        "Unity",
-                        "ASP.NET",
-                        "Sql server",
-                        "Admob para monetización",
-                        "Play store (Android)",
-                        "App Store (iOS)"
+						"Unity, C#",
+						"ASP.NET",
+                        "Entity framework, Sql server",
+                        "Admob",
+                        "Android / iOS"
                     },
                     ImageSourceName = "inari.png",
-                    Type = ProyectTypeEnum.Personal,
+                    Type = ProyectTypeEnum.Unity,
                     Url = "https://play.google.com/store/apps/developer?id=Inari"
                 },
                 new DevelopmentViewModel()
                 {
                     Title = "AAG",
-                    Text = "Sistema de gestión de matriculados, tarjetas, torneos, clubes y otros. Solución realizada en .Net Framework para la Asociacion Argentina de Golf, utilizando ASP.NET para la interfaz de gestion web y Xamarin para la app móvil, para la publicacion de servicios se utilizaron los servicios de azure para la publicacion de las Api y las bases de datos para los distintos ambientes",
+                    Text = "Sistema de gestión de matriculados, tarjetas, torneos, clubes y otros. Solución realizada en .Net Framework para la Asociación Argentina de Golf, utilizando ASP.NET para la interfaz de gestión web y Xamarin para la app móvil, se utilizaron los servicios de azure para la publicación de las Api y las bases de datos para los distintos ambientes",
                     Technologies = new List<string>(){
-                        "ASP.NET",
+                        ".NET Framework, ASP.NET",
                         "Xamarin",
-                        "Sql server",
-                        "Códigos QR",
-                        "Play store (Android)",
-                        "App Store (iOS)"
+                        "Entity framework, Sql server",
+                        "Lectura de Códigos QR",
+                        "Android / iOS"
                     },
                     ImageSourceName = "aag.png",
-                    Type = ProyectTypeEnum.BajoContrato
-                },
+                    Type = ProyectTypeEnum.NET
+				},
                 new DevelopmentViewModel()
                 {
                     Title = "MutualAlas",
-                    Text = "Sistema de otorgamiento y gestion de microcreditos. Solución realizada en .Net Core para Mutual Alas, utilizando ASP.NET Core para la interfaz de gestion web y Blazor WebAssembly para la generación de la webapp móvil, para la publicacion de servicios se utilizaron los servicios de azure para la publicacion de las Api y las bases de datos para los distintos ambientes",
+                    Text = "Sistema de otorgamiento y gestión de microcreditos. Solución realizada en .Net Core para Mutual Alas, utilizando ASP.NET Core para la interfaz de gestion web y Blazor WebAssembly para la generación de la webapp móvil, se utilizaron los servicios de azure para la publicación de las Api y las bases de datos para los distintos ambientes",
                     Technologies = new List<string>(){
-                        "ASP.NET",
+                        ".NET Core 6",
+                        "ASP.NET Core",
                         "Blazor",
-                        "Sql server",
+                        "Entity framework, Sql server",
                     },
                     ImageSourceName = "mutualalas.png",
-                    Type = ProyectTypeEnum.BajoContrato
-                },
+                    Type = ProyectTypeEnum.NET
+				},
                 new DevelopmentViewModel()
                 {
                     Title = "Shopping Las Terrazas",
-                    Text = "Aplicación realizada con Unity, con mapas, información sobre el clima segun la altura de la montaña, ubicación por gps",
+                    Text = "Aplicación realizada con Unity, con mapas generados a partir de ubicaciones reales y trasladados a un Unity terrain, información sobre el clima segun la altura de la montaña, ubicación por gps y referencia de distancia a puntos de interés por realidad virtual",
                     Technologies = new List<string>(){
-                        "Unity VR",
+                        "Unity, C#",
+                        "Google VR SDK",
+                        "Blender",
+                        "Sketch up",
+                        "Mapbox"
                     },
                     ImageSourceName = "terrazas.png",
-                    Type = ProyectTypeEnum.BajoContrato
+                    Type = ProyectTypeEnum.VirtualReality
                 },
                 new DevelopmentViewModel()
                 {
                     Title = "Sophenia",
-                    Text = "Applicación promocional para la deteccion por etiqueta de los distintos varietales de vinos y marcas de la firma Sophenia y sistema de gestion web. Se realizo con ASP.NET, Xamarin, Sql server utilizando los servicios cognitivos de azure para la identificacion de las etiquetas",
+                    Text = "Applicación promocional para la deteccion por etiqueta de los distintos varietales de vinos por medio de los servicios cognitivos de Azure y marcas de la firma Sophenia y sistema de gestion web. Se realizo con ASP.NET, Xamarin, Sql server utilizando los servicios cognitivos de azure para la identificación de las etiquetas",
                     Technologies = new List<string>(){
                         "ASP.NET",
                         "Xamarin",
-                        "Sql server",
+                        "Entity framework, Sql server",
                         "Azure cognitive services",
-                        "Play store (Android)",
-                        "App Store (iOS)"
+                        "Android / iOS"
                     },
                     ImageSourceName = "sophenia.png",
-                    Type = ProyectTypeEnum.BajoContrato
-                },
+                    Type = ProyectTypeEnum.NET
+				},
                 new DevelopmentViewModel()
                 {
                     Title = "UniversalCred",
-                    Text = "Sistema de gestion de mensajes de promocion, utilizando whatsapp para contactar a los socios del cliente. Solución realizada en .Net Core para Mutual Alas, utilizando ASP.NET Core para la interfaz de gestion web y Xamarin para la app móvil, para la publicacion de servicios se utilizaron los servicios de azure para la publicacion de las Api y las bases de datos para los distintos ambientes",
+                    Text = "Sistema de gestion de mensajes de promocion, utilizando whatsapp para contactar a los socios del cliente. Solución realizada en .Net Core para Mutual Alas, utilizando ASP.NET Core para la interfaz de gestion web y Xamarin para la app móvil, se utilizaron los servicios de azure para la publicación de las Api y las bases de datos para los distintos ambientes",
                     Technologies = new List<string>(){
                         "ASP.NET",
                         "Xamarin",
-                        "Sql server",
-                        "Play store (Android)",
-                        "App Store (iOS)"
+                        "Entity framework, Sql server",
+                        "Android / iOS"
                     },
                     ImageSourceName = "universalcred.png",
-                    Type = ProyectTypeEnum.BajoContrato
-                },
+                    Type = ProyectTypeEnum.NET
+				},
             };
             return View(data);
         }

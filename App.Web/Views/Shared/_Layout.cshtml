@@ -37,9 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white nav-flex" href="~/Files/CV Fernando Dieguez.pdf" download><div>CV</div> <img class="small-nav-icon" src="~/images/download-cloud.svg" /></a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Info" asp-action="Others">Otros</a>
-                        </li>
+                        </li>*@
                         @*<li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Legales</a>
                         </li>*@
@@ -62,7 +62,7 @@
 
     <footer class="footer text-muted text-center z-index-30">
         <div class="container">
-            &copy; 2021 - Fernando Dieguez - <a asp-area="" asp-controller="Home" asp-action="Privacy">Legales</a>
+            &copy; <span id="year">2021</span> - Fernando Dieguez - <a asp-area="" asp-controller="Home" asp-action="Privacy">Legales</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -72,6 +72,8 @@
     <script>
         $(document).ready(function () {
             $(".loading-screen").slideUp();
+            var date = new Date();
+            $("#year").html(date.getFullYear().toString());
         });
     </script>
 </body>
