@@ -14,5 +14,6 @@ namespace App.Web.Models
         public string ImageSourceName { get; set; }
         public ProyectTypeEnum Type { get; set; }
         public string Url{ get; set; }
+        public string VideoUrl { get; set; }
     }
 }

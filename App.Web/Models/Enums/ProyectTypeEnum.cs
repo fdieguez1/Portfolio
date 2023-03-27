@@ -10,5 +10,6 @@ namespace App.Web.Models.Enums
         Unity = 0,
         NET = 1,
         VirtualReality = 2,
+        UnityVideo = 3,
     }
 }

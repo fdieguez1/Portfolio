@@ -64,6 +64,11 @@
 								<li>@tech</li>
 							}
 						</ul>
+						@if (!string.IsNullOrEmpty(item.VideoUrl))
+						{
+							<iframe class="col" width="640" height="360" src="@item.VideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+						}
+
 						@if (!string.IsNullOrEmpty(item.Url))
 						{
 							<a class="dev-link" href="@item.Url">Ver más </a>
@@ -71,6 +76,18 @@
 					</div>
 				</div>
 			}
+		</div>
+		<h2>
+			Otros juegos y proyectos con Unity
+		</h2>
+		<div class="proyects-container">
+			<div class="dev-item-container">
+				<div class="row">
+					<iframe class="col" width="640" height="360" src="https://www.youtube.com/embed/Ggg4M6QA08w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+					<iframe class="col" width="640" height="360" src="https://www.youtube.com/embed/R71TZ715bGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+					<iframe class="col" width="640" height="360" src="https://www.youtube.com/embed/D3vOUnQOswY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="false"></iframe>
+				</div>
+			</div>
 		</div>
 		<h2 id="vr">VR</h2>
 		<div class="proyects-container">

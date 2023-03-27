@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,63 +9,76 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace App.Web
 {
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+	public class Startup
+	{
+		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+	WebHost.CreateDefaultBuilder(args)
+		.UseStartup<Startup>()
+		.UseKestrel(options =>
+		{
+			var port = Environment.GetEnvironmentVariable("PORT");
+			if (!string.IsNullOrEmpty(port))
+			{
+				options.Listen(IPAddress.Any, int.Parse(port));
+			}
+		});
 
-        public IConfiguration Configuration { get; }
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-        }
+		public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+		// This method gets called by the runtime. Use this method to add services to the container.
+		public void ConfigureServices(IServiceCollection services)
+		{
+			services.AddControllersWithViews();
+		}
 
-            app.UseRouting();
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		{
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+			}
+			else
+			{
+				app.UseExceptionHandler("/Home/Error");
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				app.UseHsts();
+			}
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 
-            app.UseAuthorization();
+			app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-            StaticFileOptions option = new StaticFileOptions();
-            FileExtensionContentTypeProvider contentTypeProvider = (FileExtensionContentTypeProvider)option.ContentTypeProvider ??
-            new FileExtensionContentTypeProvider();
+			app.UseAuthorization();
 
-            contentTypeProvider.Mappings.Add(".mem", "application/octet-stream");
-            contentTypeProvider.Mappings.Add(".data", "application/octet-stream");
-            contentTypeProvider.Mappings.Add(".memgz", "application/octet-stream");
-            contentTypeProvider.Mappings.Add(".datagz", "application/octet-stream");
-            contentTypeProvider.Mappings.Add(".unity3dgz", "application/octet-stream");
-            contentTypeProvider.Mappings.Add(".jsgz", "application/x-javascript; charset=UTF-8");
-            option.ContentTypeProvider = contentTypeProvider;
-            app.UseStaticFiles(option);
-        }
-    }
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllerRoute(
+					name: "default",
+					pattern: "{controller=Home}/{action=Index}/{id?}");
+			});
+			StaticFileOptions option = new StaticFileOptions();
+			FileExtensionContentTypeProvider contentTypeProvider = (FileExtensionContentTypeProvider)option.ContentTypeProvider ??
+			new FileExtensionContentTypeProvider();
+
+			contentTypeProvider.Mappings.Add(".mem", "application/octet-stream");
+			contentTypeProvider.Mappings.Add(".data", "application/octet-stream");
+			contentTypeProvider.Mappings.Add(".memgz", "application/octet-stream");
+			contentTypeProvider.Mappings.Add(".datagz", "application/octet-stream");
+			contentTypeProvider.Mappings.Add(".unity3dgz", "application/octet-stream");
+			contentTypeProvider.Mappings.Add(".jsgz", "application/x-javascript; charset=UTF-8");
+			option.ContentTypeProvider = contentTypeProvider;
+			app.UseStaticFiles(option);
+		}
+	}
 }
