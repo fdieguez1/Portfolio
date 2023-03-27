@@ -445,3 +445,23 @@ html, body {
     vertical-align: middle;
     filter: invert(1);
 }
+
+.floating-menu {
+    position: fixed;
+    top: 50%;
+    left: -2vw;
+    transform: translateY(-50%);
+}
+
+    .floating-menu li {
+        list-style-type: none;
+        color: white;
+        background-color: #5300b1;
+        padding:5px;
+        margin-top:5px;
+    }
+
+    .floating-menu a, .floating-menu a:visited{
+        text-decoration: none;
+        color:white;
+    }

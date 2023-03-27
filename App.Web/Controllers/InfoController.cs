@@ -87,8 +87,8 @@ namespace App.Web.Controllers
             List<DevelopmentViewModel> data = new List<DevelopmentViewModel>() {
 				new DevelopmentViewModel()
 				{
-					Title = "Proyecto sin nombre, Oculus quest 2",
-					Text = "Al interesarme la realidad virtual incursione en el desarrollo para la misma, principalmente con el Oculus Quest 2, siendo el headset con mas prescencia en el mercado en la actualidad",
+					Title = "Proyecto Oculus Infinity",
+					Text = "Al sentir un gran interés por la tecnología de realidad virtual, he incursionado en el desarrollo de aplicaciones para esta plataforma, enfocándome principalmente en el Oculus Quest 2, el cual cuenta actualmente con una importante participación en el mercado.",
 					Technologies = new List<string>(){
 						"Unity, C#",
 						"Oculus XR Plugin",
@@ -101,7 +101,7 @@ namespace App.Web.Controllers
 				new DevelopmentViewModel()
                 {
                     Title = "The other guys - Gameloft",
-                    Text = "Journeys Interactive Histories / Linda Brown - Trabajando en el equipo de Tech quality, nuestro objetivo era mejorar el código existente, bug fixing, análisis y seguimiento de métricas e incidencias y la creación de features para expandir la aplicacion",
+                    Text = "Journeys Interactive Histories / Linda Brown - Como parte del equipo de Tech Quality en Journeys Interactive Histories / Linda Brown, mi función ha sido mejorar el código preexistente, corregir errores, analizar y hacer seguimiento de las métricas y problemas presentados, y desarrollar nuevas funcionalidades para ampliar la aplicación. Además, durante mi tiempo en The other guys, he tenido la responsabilidad de desarrollar nuevas funcionalidades desde cero, con el fin de mejorar la monetización y la retención de usuarios de la aplicación. Este trabajo ha requerido una combinación de habilidades técnicas y creativas para garantizar que las nuevas funcionalidades sean de alta calidad y brinden una experiencia de usuario satisfactoria.",
                     Technologies = new List<string>(){
 						"Unity, C#",
 						"Amplitude",
@@ -129,7 +129,7 @@ namespace App.Web.Controllers
                 new DevelopmentViewModel()
                 {
                     Title = "Inari Apps",
-                    Text = "Segunda cuenta para la publicación de aplicaciones de entretenimiento y juegos, apuntando a crear juegos mas serios y complejos. De momento solo posee un juego publicado \"Kawaii Color Block\"",
+                    Text = "He creado una segunda cuenta para la publicación de aplicaciones de entretenimiento y juegos, con el objetivo de desarrollar juegos más serios y complejos. Actualmente, esta cuenta solo cuenta con un juego publicado llamado \"Kawaii Color Block\"",
                     Technologies = new List<string>(){
 						"Unity, C#",
 						"ASP.NET",
@@ -158,7 +158,7 @@ namespace App.Web.Controllers
                 new DevelopmentViewModel()
                 {
                     Title = "MutualAlas",
-                    Text = "Sistema de otorgamiento y gestión de microcreditos. Solución realizada en .Net Core para Mutual Alas, utilizando ASP.NET Core para la interfaz de gestion web y Blazor WebAssembly para la generación de la webapp móvil, se utilizaron los servicios de azure para la publicación de las Api y las bases de datos para los distintos ambientes",
+                    Text = "Sistema de otorgamiento y gestión de microcreditos. Solución realizada en .Net Core para Mutual Alas, utilizando ASP.NET Core para la interfaz de gestion web y Blazor WebAssembly para la generación de la webapp móvil, se utilizaron los servicios de azure para la publicación de las Api y las bases de datos para los distintos ambientes.",
                     Technologies = new List<string>(){
                         ".NET Core 6",
                         "ASP.NET Core",
@@ -171,7 +171,7 @@ namespace App.Web.Controllers
                 new DevelopmentViewModel()
                 {
                     Title = "Shopping Las Terrazas",
-                    Text = "Aplicación realizada con Unity, con mapas generados a partir de ubicaciones reales y trasladados a un Unity terrain, información sobre el clima segun la altura de la montaña, ubicación por gps y referencia de distancia a puntos de interés por realidad virtual",
+                    Text = "La aplicación utiliza Unity para generar mapas a partir de ubicaciones reales y transferirlos a un terreno de Unity. También proporciona información sobre el clima de la montaña en función de su altitud, mientras que la ubicación y la referencia de distancia a los puntos de interés se realizan a través del uso de la realidad virtual y el GPS.",
                     Technologies = new List<string>(){
                         "Unity, C#",
                         "Google VR SDK",
